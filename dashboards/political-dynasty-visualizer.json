@@ -3,13 +3,33 @@
   "kind": "Dashboard",
   "metadata": {
     "name": "g52z82",
-    "generation": 7,
-    "creationTimestamp": "2026-09-19T13:32:51Z",
+    "generation": 8,
+    "creationTimestamp": "2026-09-19T15:38:15Z",
     "labels": {},
     "annotations": {}
   },
   "spec": {
-    "annotations": [],
+    "annotations": [
+      {
+        "kind": "AnnotationQuery",
+        "spec": {
+          "query": {
+            "kind": "DataQuery",
+            "group": "grafana",
+            "version": "v0",
+            "spec": {},
+            "labels": {
+              "grafana.app/export-label": "grafana-1"
+            }
+          },
+          "enable": true,
+          "hide": true,
+          "iconColor": "rgba(0, 211, 255, 1)",
+          "name": "Annotations & Alerts",
+          "builtIn": true
+        }
+      }
+    ],
     "cursorSync": "Off",
     "editable": true,
     "elements": {
@@ -33,6 +53,7 @@
                       "version": "v0",
                       "spec": {
                         "columns": [],
+                        "filterExpression": "Year IN (${Year:singlequote}) && Region IN (${Region:singlequote}) && Province IN (${Province:singlequote})",
                         "filters": [],
                         "format": "table",
                         "global_query_id": "",
@@ -45,10 +66,6 @@
                           "data": "",
                           "method": "GET"
                         }
-                      },
-                      "labels": {
-                        "grafana.app/export-label": "yesoreyeram-infinity-datasource-1",
-                        "grafana.app/export-datasource-name": "Infinity"
                       }
                     },
                     "refId": "A",
@@ -221,6 +238,7 @@
                       "version": "v0",
                       "spec": {
                         "columns": [],
+                        "filterExpression": "Year IN (${Year:singlequote}) && Region IN (${Region:singlequote}) && Province IN (${Province:singlequote})",
                         "filters": [],
                         "format": "table",
                         "global_query_id": "",
@@ -233,10 +251,6 @@
                           "data": "",
                           "method": "GET"
                         }
-                      },
-                      "labels": {
-                        "grafana.app/export-label": "yesoreyeram-infinity-datasource-1",
-                        "grafana.app/export-datasource-name": "Infinity"
                       }
                     },
                     "refId": "A",
@@ -380,7 +394,186 @@
       "fiscalYearStartMonth": 0
     },
     "title": "Political Dynasty Visualizer",
-    "variables": [],
+    "variables": [
+      {
+        "kind": "QueryVariable",
+        "spec": {
+          "name": "Year",
+          "current": {
+            "text": "",
+            "value": ""
+          },
+          "hide": "dontHide",
+          "refresh": "onDashboardLoad",
+          "skipUrlSync": false,
+          "query": {
+            "kind": "DataQuery",
+            "group": "yesoreyeram-infinity-datasource",
+            "version": "v0",
+            "spec": {
+              "infinityQuery": {
+                "columns": [
+                  {
+                    "selector": "Year",
+                    "text": "Year",
+                    "type": "string"
+                  }
+                ],
+                "computed_columns": [],
+                "data": "values\nfoo\nbar\nbaz",
+                "filters": [],
+                "format": "table",
+                "parser": "backend",
+                "refId": "",
+                "root_selector": "",
+                "source": "url",
+                "summarizeAlias": "count",
+                "summarizeBy": "Year",
+                "summarizeExpression": "count(Year)",
+                "type": "csv",
+                "url": "",
+                "url_options": {
+                  "data": "",
+                  "method": "GET"
+                }
+              },
+              "meta": {
+                "textField": "Year",
+                "valueField": "Year"
+              },
+              "queryType": "infinity",
+              "refId": "variable"
+            },
+            "labels": {
+              "grafana.app/export-label": "yesoreyeram-infinity-datasource-1",
+              "grafana.app/export-datasource-name": "Infinity"
+            }
+          },
+          "regex": "",
+          "regexApplyTo": "value",
+          "sort": "disabled",
+          "definition": "",
+          "options": [],
+          "multi": false,
+          "includeAll": true,
+          "allowCustomValue": true
+        }
+      },
+      {
+        "kind": "QueryVariable",
+        "spec": {
+          "name": "Region",
+          "current": {
+            "text": "",
+            "value": ""
+          },
+          "hide": "dontHide",
+          "refresh": "onDashboardLoad",
+          "skipUrlSync": false,
+          "query": {
+            "kind": "DataQuery",
+            "group": "yesoreyeram-infinity-datasource",
+            "version": "v0",
+            "spec": {
+              "infinityQuery": {
+                "columns": [],
+                "data": "values\nfoo\nbar\nbaz",
+                "filters": [],
+                "format": "table",
+                "parser": "backend",
+                "refId": "",
+                "root_selector": "",
+                "source": "url",
+                "summarizeAlias": "count",
+                "summarizeBy": "Region",
+                "summarizeExpression": "count(Region)",
+                "type": "csv",
+                "url": "",
+                "url_options": {
+                  "data": "",
+                  "method": "GET"
+                }
+              },
+              "meta": {
+                "textField": "Region",
+                "valueField": "Region"
+              },
+              "queryType": "infinity",
+              "refId": "variable"
+            },
+            "labels": {
+              "grafana.app/export-label": "yesoreyeram-infinity-datasource-1",
+              "grafana.app/export-datasource-name": "Infinity"
+            }
+          },
+          "regex": "",
+          "regexApplyTo": "value",
+          "sort": "disabled",
+          "definition": "",
+          "options": [],
+          "multi": false,
+          "includeAll": true,
+          "allowCustomValue": true
+        }
+      },
+      {
+        "kind": "QueryVariable",
+        "spec": {
+          "name": "Province",
+          "current": {
+            "text": "",
+            "value": ""
+          },
+          "hide": "dontHide",
+          "refresh": "onDashboardLoad",
+          "skipUrlSync": false,
+          "query": {
+            "kind": "DataQuery",
+            "group": "yesoreyeram-infinity-datasource",
+            "version": "v0",
+            "spec": {
+              "infinityQuery": {
+                "columns": [],
+                "data": "values\nfoo\nbar\nbaz",
+                "filters": [],
+                "format": "table",
+                "parser": "backend",
+                "refId": "",
+                "root_selector": "",
+                "source": "url",
+                "summarizeAlias": "count",
+                "summarizeBy": "Province",
+                "summarizeExpression": "count(Province)",
+                "type": "csv",
+                "url": "",
+                "url_options": {
+                  "data": "",
+                  "method": "GET"
+                }
+              },
+              "meta": {
+                "textField": "Province",
+                "valueField": "Province"
+              },
+              "queryType": "infinity",
+              "refId": "variable"
+            },
+            "labels": {
+              "grafana.app/export-label": "yesoreyeram-infinity-datasource-1",
+              "grafana.app/export-datasource-name": "Infinity"
+            }
+          },
+          "regex": "",
+          "regexApplyTo": "value",
+          "sort": "disabled",
+          "definition": "",
+          "options": [],
+          "multi": false,
+          "includeAll": true,
+          "allowCustomValue": true
+        }
+      }
+    ],
     "preferences": {
       "layout": {
         "kind": "GridLayout",
